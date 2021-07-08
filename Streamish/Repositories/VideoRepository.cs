@@ -378,7 +378,7 @@ namespace Streamish.Repositories
             }
         }
 
-        public List<Video> Hottest(DateTime datetime)
+        public List<Video> Hottest(string datetime)
         {
             using (var conn = Connection)
             {
@@ -393,19 +393,12 @@ namespace Streamish.Repositories
                         
                 FROM Video v 
                      JOIN UserProfile up ON v.UserProfileId = up.Id
-               WHERE v.DateCreated >= @Datetime ";
+               WHERE Convert(varchar, v.DateCreated) >=  @DateTime ";
 
-                    //if (sortDescending)
-                    //{
-                    //    sql += " ORDER BY v.DateCreated DESC";
-                    //}
-                    //else
-                    //{
-                    //    sql += " ORDER BY v.DateCreated";
-                    //}
+                    
 
                     cmd.CommandText = sql;
-                    DbUtils.AddParameter(cmd, "@Datetime", $"%{datetime}%");
+                    DbUtils.AddParameter(cmd, "@DateTime", $"%{datetime}%");
                     var reader = cmd.ExecuteReader();
 
                     var videos = new List<Video>();

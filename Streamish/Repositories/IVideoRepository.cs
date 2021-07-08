@@ -16,7 +16,7 @@ namespace Streamish.Repositories
 
         List<Video> Search(string criterion, bool sortDescending);
 
-        List<Video> Hottest(DateTime datetime);
+        List<Video> Hottest(string datetime);
 
     }
 }
