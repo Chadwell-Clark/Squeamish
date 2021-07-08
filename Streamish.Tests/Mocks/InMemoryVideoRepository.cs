@@ -80,5 +80,10 @@ namespace Streamish.Tests.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public List<Video> Hottest(string datetime)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
