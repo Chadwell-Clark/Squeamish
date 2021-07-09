@@ -17,7 +17,8 @@ const Video = ({ video }) => {
           <strong>{video.title}</strong>
         </p>
         <p>{video.description}</p>
-       <div>Comments {video.comments.map(comment => <div><p>{comment.message}</p><p>{comment.userProfile.name}</p></div>)}</div>
+        {/* Create logic for no comments and / or make component for comment that adds user name */}
+       <div>Comments {video.comments?.map(comment => <p>{comment.message}</p>)}</div>
       </CardBody>
     </Card>
   );
