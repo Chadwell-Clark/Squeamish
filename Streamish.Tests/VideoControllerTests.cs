@@ -180,6 +180,40 @@ namespace Streamish.Tests
             Assert.Null(videoFromDb);
         }
 
+        [Fact]
+        public void Search_Method_Finds_Videos_In_Desc_Order_With_String_Input()
+        {
+            // Arrange
+            var videos = CreateTestVideos(5);
+            for (var i = 1; i <= 4; i++)
+            {
+                videos[i].Title = $"Title {i}";
+            }
+            var repo = new InMemoryVideoRepository(videos);
+            var controller = new VideoController(repo);
+
+            //Act
+            var results = controller.Search("Title", true);
+
+            //ASSERT
+            var okResult = Assert.IsType<OkObjectResult>(results);
+            var actualVideos = Assert.IsType<List<Video>>(okResult.Value);
+
+            Assert.Equal(5, actualVideos.Count);
+        }
+        //[Fact]
+        //public void Search_For_All_Videos_By_Date_And_Since_Date()
+        //{
+        //    //Arrange
+
+        //    var repo = new InMemoryVideoRepository(videos);
+        //    var controller = new VideoController(repo);
+        //    // Act
+            
+        //    //Assert
+
+        //}
+
         private List<Video> CreateTestVideos(int count)
         {
             var videos = new List<Video>();

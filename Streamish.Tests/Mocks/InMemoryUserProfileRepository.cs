@@ -40,6 +40,7 @@ namespace Streamish.Tests.Mocks
             {
                 return;
             }
+            _data.Remove(userProfileToDelete);
         }
 
         public List<UserProfile> GetAll()
