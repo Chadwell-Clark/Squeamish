@@ -35,7 +35,7 @@ const VideoList = () => {
         Search Videos
       </Button>
       <div className="row justify-content-center">
-        <VideoForm getVideos={getVideos} />
+        {/* <VideoForm getVideos={getVideos} /> */}
         {videos.map((video) => (
           <Video video={video} key={video.id} />
         ))}
