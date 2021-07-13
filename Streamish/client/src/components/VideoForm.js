@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { addVideo } from "../modules/videoManager";
-import { Button, Card, CardBody } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  FormGroup,
+  Form,
+  Label,
+  Input,
+} from "reactstrap";
 
 const VideoForm = ({ getVideos }) => {
   // create object with keys and empty values or you can set it directly in the use State
@@ -33,47 +41,57 @@ const VideoForm = ({ getVideos }) => {
   return (
     <Card>
       <CardBody>
-        <form className="container px-2">
-          <fieldset>
-            <div className="container text-left">
-              <label>Title</label>
-              <input
-                type="text"
-                onChange={handleChange}
-                id="Title"
-                name="Title"
-                placeholder="Title - required"
-                value={video.Title}
-                required
-              />
-            </div>
-            <div className="container">
-              <label>Youtube Video Url</label>
-              <input
-                type="text"
-                onChange={handleChange}
-                id="Url"
-                name="Url"
-                placeholder="Url - required"
-                value={video.Url}
-                required
-              />
-            </div>
-            <div className="container">
-              <label>Description</label>
-              <input
-                type="text"
-                onChange={handleChange}
-                id="Description"
-                placeholder="Description"
-                value={video.Description}
-              />
-            </div>
-            <Button outline color="primary" type="submit" onClick={handleClick}>
-              Save New Video
-            </Button>
-          </fieldset>
-        </form>
+        <Form>
+          <FormGroup>
+            <Label>Title</Label>
+            <Input
+              type="text"
+              onChange={handleChange}
+              id="Title"
+              name="Title"
+              placeholder="Title - required"
+              value={video.Title}
+              bsSize="lg"
+              required
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Youtube Video Url</Label>
+            <Input
+              type="text"
+              onChange={handleChange}
+              id="Url"
+              name="Url"
+              placeholder="Url - required"
+              value={video.Url}
+              bsSize="lg"
+              required
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Description</Label>
+            <Input
+              type="text"
+              onChange={handleChange}
+              id="Description"
+              placeholder="Description"
+              value={video.Description}
+              bsSize="lg"
+            />
+          </FormGroup>
+
+          <Button
+            className="mt-3"
+            outline
+            color="primary"
+            type="submit"
+            onClick={handleClick}
+          >
+            Save New Video
+          </Button>
+        </Form>
       </CardBody>
     </Card>
   );
