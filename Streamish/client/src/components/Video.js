@@ -33,7 +33,7 @@ const Video = ({ video }) => {
         <div>
           Comments{" "}
           {video.comments?.map((comment) => (
-            <p>{comment.message}</p>
+            <p key={comment.id}>{comment.message}</p>
           ))}
         </div>
       </CardBody>
