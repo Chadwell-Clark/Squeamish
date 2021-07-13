@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useHistory } from "react-router";
 import { addVideo } from "../modules/videoManager";
 import { Button, Card, CardBody } from "reactstrap";
@@ -11,13 +10,14 @@ const VideoForm = ({ getVideos }) => {
     Url: "",
     Description: "",
   };
+
   // create useState object to set video values in
   const [video, setvideo] = useState({ videoToAdd });
-
+  const history = useHistory();
   // create handleChange that copies the current state of the useState video and continually updates the current key values and re sets the useState video
   const handleChange = (e) => {
     const tempVideo = { ...video };
-    let valueChange = e.target.value;
+    const valueChange = e.target.value;
     tempVideo[e.target.id] = valueChange;
     setvideo(tempVideo);
   };
@@ -25,8 +25,8 @@ const VideoForm = ({ getVideos }) => {
   const handleClick = (e) => {
     e.preventDefault();
     addVideo(video).then((res) => {
-      getVideos();
       setvideo(videoToAdd);
+      history.push("/");
     });
   };
 
