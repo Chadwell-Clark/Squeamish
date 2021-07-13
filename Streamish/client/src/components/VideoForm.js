@@ -43,7 +43,7 @@ const VideoForm = ({ getVideos }) => {
       <CardBody>
         <Form>
           <FormGroup>
-            <Label>Title</Label>
+            <Label className="fs-3">Title</Label>
             <Input
               type="text"
               onChange={handleChange}
@@ -57,7 +57,7 @@ const VideoForm = ({ getVideos }) => {
           </FormGroup>
 
           <FormGroup>
-            <Label>Youtube Video Url</Label>
+            <Label className="fs-3">Youtube Video Url</Label>
             <Input
               type="text"
               onChange={handleChange}
@@ -71,7 +71,7 @@ const VideoForm = ({ getVideos }) => {
           </FormGroup>
 
           <FormGroup>
-            <Label>Description</Label>
+            <Label className="fs-3">Description</Label>
             <Input
               type="text"
               onChange={handleChange}
