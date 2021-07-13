@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand navbar-dark bg-info">
-      <Link to="/" className="navbar-brand">
+      <Link to="/" className="navbar-brand ms-4">
         StreamISH
       </Link>
       <ul className="navbar-nav mr-auto">
